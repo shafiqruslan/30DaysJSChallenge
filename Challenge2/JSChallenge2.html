@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="JSChallenge2.css">
+    <title>Javascript Challenge 2</title>
+  </head>
+  <body>
+    <div class="center">
+      <div class="clock">
+          <div class="clock-face">
+              <div class="hand hand-hours">
+              </div>
+              <div class="hand hand-minutes">
+              </div>
+              <div class="hand hand-seconds">
+              </div>
+          </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    let now = new Date();
+    handHours = document.querySelector(".hand-hours");
+    handMinutes = document.querySelector(".hand-minutes");
+    handSeconds = document.querySelector(".hand-seconds");
+    function setDate() {
+      const now = new Date();
+
+      const seconds = now.getSeconds();
+      const secondsDegrees = ((seconds / 60) * 360) + 90;
+      handSeconds.style.transform = `rotate(${secondsDegrees}deg)`;
+
+      const mins = now.getMinutes();
+      const minsDegrees = ((mins / 60) * 360) + 90;
+      handMinutes.style.transform = `rotate(${minsDegrees}deg)`;
+
+      const hour = now.getHours();
+      const hourDegrees = ((hour / 12) * 360) + 90;
+      handHours.style.transform = `rotate(${hourDegrees}deg)`;
+    }
+
+    setInterval(setDate, 1000);
+    setDate();
+  </script>
+</html>
+
+ 
